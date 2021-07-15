@@ -117,6 +117,10 @@ footer img {
     position: relative;
 }
 
+.jk-fixed {
+    position: fixed;
+}
+
 #search-box {
     margin-top: 1rem;
     display: none;
