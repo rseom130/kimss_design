@@ -31,11 +31,6 @@
 /*************************************************************************************/
 
 * {
-    -ms-user-select: none;
-    -moz-user-select: -moz-none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    user-select:none;
     -webkit-user-drag: none;
     -ms-user-drag: none;
     -moz-user-drag: none;
