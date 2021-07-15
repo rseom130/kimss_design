@@ -1,4 +1,9 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* iOS only */
+@supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+}
+
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
@@ -50,9 +55,7 @@ html, body {
     -ms-content-zooming: none;
     -ms-touch-action: none;
     width: 100vw;
-    height: 100vh !important;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    height: 100vh;
 }
 
 #background {
