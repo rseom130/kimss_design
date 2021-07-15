@@ -31,11 +31,29 @@
 /*************************************************************************************/
 
 * {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select:none;
     -webkit-user-drag: none;
     -ms-user-drag: none;
     -moz-user-drag: none;
     -khtml-user-drag: none;
     user-drag: none;
+}
+
+input, textarea {
+    -ms-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -webkit-user-select: auto !important;
+    -khtml-user-select: auto !important;
+    user-select:auto !important;
+    -webkit-user-drag: auto !important;
+    -ms-user-drag: auto !important;
+    -moz-user-drag: auto !important;
+    -khtml-user-drag: auto !important;
+    user-drag: auto !important;
 }
 
 html, body {
