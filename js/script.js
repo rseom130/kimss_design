@@ -9,11 +9,23 @@ function f_search_box() {
     }
 }
 
-/*
+
 $(document).ready(function() {
-    gallery_img_height();
+    f_list_img_height();
 });
 $( window ).resize(function() {
-    gallery_img_height();
+    f_list_img_height();
 });
- */
+
+function f_list_img_height() {
+    var w = $('.jk-list-image').width();
+    $('.jk-list-image').height(w);
+}
+
+function f_about_input(v) {
+    if(event.keyCode==13) {
+        $('.jk-input-box').before('<span>'+v+'</span>');
+        $('.jk-input-box').before('<strong class="text-muted">Sorry. No Data.</strong>');
+        $('.jk-input-box input').val('');
+    }
+}

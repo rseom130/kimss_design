@@ -92,14 +92,16 @@ footer img {
 }
 
 .jk-btn svg {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     padding: 0.5rem 0;
     transition: 0.3s;
 }
 
 .jk-btn-bottom svg {
     fill: #666666;
+    /*width: 3rem;*/
+    /*height: 3rem;*/
 }
 
 .jk-btn-top svg {
@@ -130,4 +132,75 @@ button:focus {
     border-color: #6c757d !important;
     box-shadow: none !important;
     outline: 0 none !important;
+}
+
+.jk-btn-search-submit svg {
+    margin-top: -5px;
+}
+
+.jk-list-image {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../images/picture.svg");
+}
+
+.jk-list-title {
+    color: #c8c8c8;
+}
+
+.jk-submenu {
+    font-weight: 500;
+}
+
+.jk-submenu a {
+    text-underline: none;
+    text-decoration: none;
+}
+
+.jk-about {
+    max-height: 50%;
+    height: 100%;
+    border: 1px solid #666666;
+    border-radius: 5px;
+}
+
+.jk-about span,
+.jk-about strong {
+    display: block;
+}
+
+.jk-about > * {
+    margin-bottom: 1rem;
+}
+
+.jk-about span {
+    color: #c8c8c8;
+}
+
+.jk-about input {
+    background: none;
+    border: none;
+    width: calc(100% - 1.1rem);
+    color: #c8c8c8;
+    padding: 0;
+}
+
+.jk-about span::before {
+    content: '>';
+    margin-right: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    text-underline-mode: none;
+    transition: 0.3s;
+}
+
+main.a-hover a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
