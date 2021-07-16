@@ -30,6 +30,12 @@ function f_about_input(v) {
     }
 }
 
+var yt_lyrics_active = null;
+var yt_lyrics_count = 0;
+var yt_lyrics_all = null;
+var yt_sync_time = 0;
+var yt_now_time = youtube_player.playerInfo.currentTime;
+var yt = null;
 function f_play_btn(t) {
     if($(t).hasClass('pause')) {
         $(t).removeClass('pause');
@@ -39,6 +45,7 @@ function f_play_btn(t) {
             '</svg>'
         );
         youtube_player.pauseVideo();
+        clearInterval(yt_lyrics_active);
     } else {
         $(t).addClass('pause');
         $(t).html(
@@ -47,6 +54,21 @@ function f_play_btn(t) {
             '</svg>'
         );
         youtube_player.playVideo();
+
+        yt_lyrics_all = $('.jk-music-lyrics p');
+        yt_lyrics_count = 0;
+        yt = yt_lyrics_all.eq(yt_lyrics_count);
+        yt_sync_time = yt.data('yttime');
+        yt_lyrics_active = setInterval(function() {
+            yt_now_time = youtube_player.playerInfo.currentTime;
+            if(yt_sync_time<=yt_now_time) {
+                yt_lyrics_all.removeClass('on');
+                yt.addClass('on');
+                yt_lyrics_count++;
+                yt = yt_lyrics_all.eq(yt_lyrics_count);
+                yt_sync_time = yt.data('yttime');
+            }
+        }, 10);
     }
 }
 
