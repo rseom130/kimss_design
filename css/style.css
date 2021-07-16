@@ -230,6 +230,10 @@ main.a-hover .a-hover-in:hover {
     color: #fefefe;
 }
 
+.jk-music-lyrics p {
+    cursor: pointer
+}
+
 #youtube_player {
     display: none;
 }

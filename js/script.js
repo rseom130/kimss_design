@@ -30,6 +30,8 @@ function f_about_input(v) {
     }
 }
 
+/* music */
+
 var yt_lyrics_active = null;
 var yt_lyrics_count = 0;
 var yt_lyrics_all = null;
@@ -68,7 +70,7 @@ function f_play_btn(t) {
                 yt = yt_lyrics_all.eq(yt_lyrics_count);
                 yt_sync_time = yt.data('yttime');
             }
-        }, 10);
+        }, 100);
     }
 }
 
@@ -93,3 +95,8 @@ function f_sound_btn(t) {
         youtube_player.mute();
     }
 }
+
+$('.jk-music-lyrics p').on('click', function() {
+    yt_lyrics_count = 0;
+    youtube_player.seekTo(parseInt($(this).data('yttime')), true);
+});
