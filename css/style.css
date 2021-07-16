@@ -162,11 +162,15 @@ button:focus {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url("../images/picture.svg");
+    background-image: url("../images/icon/picture.svg");
 }
 
 .jk-list-title {
     color: #c8c8c8;
+    white-space: nowrap;
+}
+.jk-list-subtitle {
+    white-space: nowrap;
 }
 
 .jk-submenu {
@@ -217,7 +221,11 @@ a {
     transition: 0.3s;
 }
 
-main.a-hover a:hover {
+main.a-hover .a-hover-in:hover {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
+}
+
+.jk-music-lyrics .on {
+    color: #fefefe;
 }
