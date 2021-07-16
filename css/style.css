@@ -229,3 +229,7 @@ main.a-hover .a-hover-in:hover {
 .jk-music-lyrics .on {
     color: #fefefe;
 }
+
+#youtube_player {
+    display: none;
+}

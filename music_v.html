@@ -144,16 +144,20 @@
             <div class="py-2 px-2 overflow-hidden a-hover-in">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex overflow-hidden">
-                        <div class="bd-placeholder-img flex-shrink-0 me-2 rounded jk-list-image" style="background-image: url('https://img.youtube.com/vi/kjWOL-zExS0/hqdefault.jpg');"></div>
+                        <div class="bd-placeholder-img flex-shrink-0 me-2 rounded jk-list-image" style="background-image: url('https://img.youtube.com/vi/kjWOL-zExS0/hqdefault.jpg');">
+                            <div id="youtube_player"></div>
+                        </div>
                         <p class="mb-0 small text-start">
                             <span class="d-block jk-list-title">수채화 (Feat. BinHwa, 문어)</span>
                             <span class="text-muted jk-list-subtitle">김슿슿</span>
                         </p>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="button" class="first_btn text-center jk-btn jk-btn-bottom" onclick="f_first_btn(this)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
-                                <path d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z"/>
+                        <button type="button" class="mute_btn text-center jk-btn jk-btn-bottom" onclick="f_sound_btn(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
+                                <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                                <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
                             </svg>
                         </button>
                         <button type="button" class="play_btn text-center jk-btn jk-btn-bottom" onclick="f_play_btn(this)">
@@ -226,5 +230,51 @@
         </div>
     </footer>
 </div>
+<script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var youtube_player;
+    function onYouTubeIframeAPIReady() {
+        youtube_player = new YT.Player('youtube_player', {
+            height: '100%',
+            width: '100%',
+            videoId: 'kjWOL-zExS0',
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            },
+            playerVars: {'controls': 0 },
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        event.target.playVideo();
+    }
+
+    function stopVideo() {
+        // youtube_player.stopVideo();
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    }
+
+    console.log(youtube_player.playerInfo.currentTime); // 현재 재생 시간
+</script>
 </body>
 </html>
