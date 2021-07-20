@@ -233,6 +233,9 @@ main.a-hover .a-hover-in:hover {
 .jk-music-lyrics p {
     cursor: pointer
 }
+.jk-cursor-pointer {
+    cursor: pointer
+}
 
 progress::-webkit-progress-bar {
     background: none;
