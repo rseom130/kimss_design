@@ -234,6 +234,33 @@ main.a-hover .a-hover-in:hover {
     cursor: pointer
 }
 
-#youtube_player {
+progress::-webkit-progress-bar {
+    background: none;
+}
+
+progress::-webkit-progress-value {
+    background: #e93355;
+    transition: 0.3s;
+}
+
+progress::-moz-progress-bar {
+    background: #e93355;
+}
+
+.jk-music-information-box.on .jk-music-progress-bar {
+    height: 10px;
+}
+.jk-music-progress-bar {
+    height: 3px;
+    width: 100%;
+    display: flex;
+    transition: 0.3s;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+#jk-music-player {
+    display: none;
+}
+.jk-music-information {
     display: none;
 }
