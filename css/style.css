@@ -237,3 +237,17 @@ main.a-hover .a-hover-in:hover {
 #youtube_player {
     display: none;
 }
+
+.progress {
+    height: 2px;
+    background: none !important;
+}
+
+.progress #music-progress {
+    width: 100%;
+    background: none;
+}
+
+progress::-moz-progress-bar { background: none; }
+progress::-webkit-progress-value { background: #e93355; }
+progress { color: #e93355; }
