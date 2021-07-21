@@ -86,7 +86,14 @@ function f_music_align() {
     var c = $("main").height();
     var d = $('.jk-music-lyrics p.on').offset().top - $('.jk-music-lyrics p.on').parent().offset().top;
     var e = d + (a/2) - (c/2);
-    var chk = $(window).height()<$('.jk-music-lyrics p.on').offset().top || $('.jk-music-lyrics p.on').offset().top<0 || !music_lyrics_scroll;
+    var chk = false;
+    if($(window).height()<$('.jk-music-lyrics p.on').offset().top || $('.jk-music-lyrics p.on').offset().top<0) {
+        chk = true;
+    } else {
+        if(!music_lyrics_scroll) {
+            chk = true;
+        }
+    }
     if(chk) {
         $("main").stop().animate(
             {scrollTop: e + "px"}, {easing: "swing", duration: 250}
